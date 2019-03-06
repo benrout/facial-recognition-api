@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex')
+require('dotenv').config();
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
@@ -41,5 +42,5 @@ app.put('/image', (req, res) => { image.handleImage(req, res, db) })
 
 // App Listen
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`App is listening on port ${process.env.PORT}`);
+    console.log(`App is listening on port ${process.env.PORT || 3000}`);
 })
